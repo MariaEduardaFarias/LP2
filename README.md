@@ -1,4 +1,4 @@
-#### UERJ - UNIVERSIDADE DO ESTADO DO RIO DE JANEIRO
-##### DISCIPLINA: Linguagem de Programação II
-##### DOCENTE: Francisco Sant'anna
-##### DISCENTE: Maria Eduarda Soares de Farias Santos
+<h4>UERJ - UNIVERSIDADE DO ESTADO DO RIO DE JANEIRO<h4>
+<h5>DISCIPLINA: Linguagem de Programação II<h5>
+<h5>DOCENTE: Francisco Sant'anna<h5>
+<h5>DISCENTE: Maria Eduarda Soares de Farias Santos<h5>

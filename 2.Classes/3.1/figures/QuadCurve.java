@@ -7,15 +7,15 @@ import java.awt.geom.QuadCurve2D.Double;
 public class QuadCurve {
     private int x1, y1;
     private int ctrx, ctry;
-	private int x2, y2;
+    private int x2, y2;
 
     public QuadCurve (int x1, int y1, int ctrx, int ctry, int x2, int y2) {
         this.x1 = x1;
         this.y1 = y1;
         this.ctrx = ctrx;
         this.ctry = ctry;
-		this.x2 = x2;
-		this.y2 = y2;
+	this.x2 = x2;
+	this.y2 = y2;
     }
 
     private void print () {

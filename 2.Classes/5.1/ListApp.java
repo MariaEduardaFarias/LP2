@@ -16,7 +16,7 @@ class ListApp {
 
 class ListFrame extends JFrame {
     ArrayList<Rect> rs = new ArrayList<Rect>();
-	ArrayList<Ellipse> es = new ArrayList<Ellipse>();
+    ArrayList<Ellipse> es = new ArrayList<Ellipse>();
     Random rand = new Random();
 
     ListFrame () {
@@ -36,29 +36,29 @@ class ListFrame extends JFrame {
                         int y = rand.nextInt(350);
                         int w = rand.nextInt(50);
                         int h = rand.nextInt(50);
-						int r = rand.nextInt(255);
+			int r = rand.nextInt(255);
                         int g = rand.nextInt(255);
                         int b = rand.nextInt(255);
                         int Drawr = rand.nextInt(255);
-						int Drawg = rand.nextInt(255);
-						int Drawb = rand.nextInt(255);
+			int Drawg = rand.nextInt(255);
+			int Drawb = rand.nextInt(255);
                         rs.add(new Rect(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
                         repaint();  // outer.repaint()
                     }
-					else if (evt.getKeyChar() == 'e') {
-						int x = rand.nextInt(350);
+		    else if (evt.getKeyChar() == 'e') {
+			int x = rand.nextInt(350);
                         int y = rand.nextInt(350);
                         int w = rand.nextInt(50);
                         int h = rand.nextInt(50);
-						int r = rand.nextInt(255);
+			int r = rand.nextInt(255);
                         int g = rand.nextInt(255);
                         int b = rand.nextInt(255);
                         int Drawr = rand.nextInt(255);
-						int Drawg = rand.nextInt(255);
-						int Drawb = rand.nextInt(255);
+			int Drawg = rand.nextInt(255);
+			int Drawb = rand.nextInt(255);
                         es.add(new Ellipse(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
                         repaint();
-					}
+		    }
                 }
             }
         );
@@ -72,8 +72,8 @@ class ListFrame extends JFrame {
         for (Rect r: this.rs) {
             r.paint(g);
         }
-		for (Ellipse e: this.es) {
-			e.paint(g);
-		}
+	for (Ellipse e: this.es) {
+	    e.paint(g);
+	}
     }
 }

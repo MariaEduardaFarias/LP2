@@ -33,6 +33,10 @@ class ListFrame extends JFrame {
                     int y = rand.nextInt(350);
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
+		    int ctrx = rand.nextInt(350);
+		    int ctry = rand.nextInt(350);
+		    int x2 = rand.nextInt(350);
+		    int y2 = rand.nextInt(350);
 		    int r = rand.nextInt(255);
                     int g = rand.nextInt(255);
                     int b = rand.nextInt(255);
@@ -46,10 +50,6 @@ class ListFrame extends JFrame {
                         figs.add(new Ellipse(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
 		    }
 		    else if (evt.getKeyChar() == 'q') {
-			int ctrx = rand.nextInt(350);
-			int ctry = rand.nextInt(350);
-			int x2 = rand.nextInt(350);
-			int y2 = rand.nextInt(350);
 			figs.add(new QuadCurve(x,y, ctrx,ctry, x2,y2, r,g,b, Drawr,Drawg,Drawb));
 		    }
 		    repaint();

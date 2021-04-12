@@ -6,7 +6,7 @@ import java.awt.geom.Arc2D.Double;
 
 public class Arc extends Figure {
     private int w, h;
-	private int AngleI, AngleF;
+    private int AngleI, AngleF;
 
     public Arc (int x, int y, int w, int h, int AngleI, int AngleF, int r, int g, int b, int Drawr, int Drawg, int Drawb) {
         super(x,y, r,g,b, Drawr,Drawg,Drawb);
@@ -23,10 +23,10 @@ public class Arc extends Figure {
 
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-		g2d.setColor(new Color(this.r,this.g,this.b));
-		g2d.fill(new Arc2D.Double(this.x,this.y, this.w,this.h, this.AngleI,this.AngleF, Arc2D.PIE));
+	g2d.setColor(new Color(this.r,this.g,this.b));
+	g2d.fill(new Arc2D.Double(this.x,this.y, this.w,this.h, this.AngleI,this.AngleF, Arc2D.PIE));
         g2d.draw(new Arc2D.Double(this.x,this.y, this.w,this.h, this.AngleI,this.AngleF, Arc2D.PIE));
-		g2d.setColor(new Color(this.Drawr,this.Drawg,this.Drawb));
+	g2d.setColor(new Color(this.Drawr,this.Drawg,this.Drawb));
         g2d.draw(new Arc2D.Double(this.x,this.y, this.w,this.h, this.AngleI,this.AngleF, Arc2D.PIE));
     }
 }

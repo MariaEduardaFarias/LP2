@@ -5,13 +5,10 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Arc2D.Double;
 
 public class Arc extends Figure {
-    private int w, h;
     private int AngleI, AngleF;
 
     public Arc (int x, int y, int w, int h, int AngleI, int AngleF, int r, int g, int b, int Drawr, int Drawg, int Drawb) {
-        super(x,y, r,g,b, Drawr,Drawg,Drawb);
-        this.w = w;
-        this.h = h;
+        super(x,y, w,h, r,g,b, Drawr,Drawg,Drawb);
         this.AngleI = AngleI;
         this.AngleF = AngleF;
     }

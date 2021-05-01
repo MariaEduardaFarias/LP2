@@ -86,7 +86,7 @@ class ListFrame extends JFrame {
                         figs.add(new Ellipse(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
 		    }
 		    else if (evt.getKeyChar() == 'q') {
-		        figs.add(new QuadCurve(x,y, ctrx,ctry, x2,y2, r,g,b, Drawr,Drawg,Drawb));
+		        figs.add(new QuadCurve(x,y, ctrx,ctry, x2,y2, w,h, r,g,b, Drawr,Drawg,Drawb));
 		    }
 		    else if (evt.getKeyChar() == 'a') {
 		        figs.add(new Arc(x,y, w,h, AngleI,AngleF, r,g,b, Drawr,Drawg,Drawb));

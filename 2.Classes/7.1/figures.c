@@ -163,7 +163,7 @@ void main (void) {
     };
 
     ///
-	int i;
+    int i;
     for (i=0; i<4; i++) {
         figs[i]->print(figs[i]);
     }

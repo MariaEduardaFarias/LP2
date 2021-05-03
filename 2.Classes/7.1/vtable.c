@@ -6,23 +6,23 @@ typedef struct {
 } Color;
 
 Color color_new(int r, int g, int b) {
-	Color cor;
-	cor.r = r;
-	cor.g = g;
-	cor.b = b;
-	return cor;
+    Color cor;
+    cor.r = r;
+    cor.g = g;
+    cor.b = b;
+    return cor;
 }
 
 void color_paint(Color cor) {
-	int r = cor.r;
-	int g = cor.g;
-	int b = cor.b;
-	if(r == 0 && g == 0 && b == 0){
+    int r = cor.r;
+    int g = cor.g;
+    int b = cor.b;
+    if(r == 0 && g == 0 && b == 0){
         printf("preto");
-	}
-	else if(r == 0 && g == 0 && b == 255){
+    }
+    else if(r == 0 && g == 0 && b == 255){
         printf("azul ");
-	}
+    }
 }
 
 
@@ -32,9 +32,9 @@ typedef int (* Figure_Area) (struct Figure*);
 typedef int (* Figure_Perimetro) (struct Figure*);
 
 typedef struct {
-	void (* print) (struct Figure*);
-	int (* area) (struct Figure*);
-	int (* perimetro) (struct Figure*);
+    void (* print) (struct Figure*);
+    int (* area) (struct Figure*);
+    int (* perimetro) (struct Figure*);
 } Figure_vtable;
 
 typedef struct Figure {
@@ -59,17 +59,17 @@ void rect_print (Rect* this) {
 }
 
 int rect_area (Rect* this) {
-	Figure* sup = (Figure*) this;
-	return this->w * this->h;
+    Figure* sup = (Figure*) this;
+    return this->w * this->h;
 }
 
 int rect_perimetro (Rect* this) {
-	Figure* sup = (Figure*) this;
-	return 2*this->w + 2*this->h;
+    Figure* sup = (Figure*) this;
+    return 2*this->w + 2*this->h;
 }
 
 Figure_vtable rect_vtable = {
-	(Figure_Print) rect_print,
+    (Figure_Print) rect_print,
     (Figure_Area)  rect_area,
     (Figure_Perimetro) rect_perimetro,
 };
@@ -103,17 +103,17 @@ void ellipse_print (Ellipse* this) {
 }
 
 int ellipse_area (Ellipse* this) {
-	Figure* sup = (Figure*) this;
-	return this->w * this->h;
+    Figure* sup = (Figure*) this;
+    return this->w * this->h;
 }
 
 int ellipse_perimetro (Ellipse* this) {
-	Figure* sup = (Figure*) this;
-	return 2*this->w + 2*this->h;
+    Figure* sup = (Figure*) this;
+    return 2*this->w + 2*this->h;
 }
 
 Figure_vtable ellipse_vtable = {
-	(Figure_Print) ellipse_print,
+    (Figure_Print) ellipse_print,
     (Figure_Area)  ellipse_area,
     (Figure_Perimetro) ellipse_perimetro
 };
@@ -143,22 +143,22 @@ void arc_print (Arc* this) {
     Figure* sup = (Figure*) this;
     printf("\nArco de tamanho (%d,%d) na posicao (%d,%d), com angulo de (%d,%d) graus, area %d e perimetro %d. ",
            this->w, this->h, sup->x, sup->y, this->AngleI, this->AngleF, sup->vtable->area(sup), sup->vtable->perimetro(sup));
-	printf("Cor de fundo: "); color_paint(sup->fg);
+    printf("Cor de fundo: "); color_paint(sup->fg);
     printf("; Cor de borda:  "); color_paint(sup->bg);
 }
 
 int arc_area (Arc* this) {
-	Figure* sup = (Figure*) this;
-	return this->w * this->h;
+    Figure* sup = (Figure*) this;
+    return this->w * this->h;
 }
 
 int arc_perimetro (Arc* this) {
-	Figure* sup = (Figure*) this;
-	return 2*this->w + 2*this->h;
+    Figure* sup = (Figure*) this;
+    return 2*this->w + 2*this->h;
 }
 
 Figure_vtable arc_vtable = {
-	(Figure_Print) arc_print,
+    (Figure_Print) arc_print,
     (Figure_Area)  arc_area,
     (Figure_Perimetro) arc_perimetro
 };
@@ -195,17 +195,17 @@ void quadCurve_print (QuadCurve* this) {
 }
 
 int quadCurve_area (QuadCurve* this) {
-	Figure* sup = (Figure*) this;
-	return (sup->x + this-> x2) * (sup->y + this->y2);
+    Figure* sup = (Figure*) this;
+    return (sup->x + this-> x2) * (sup->y + this->y2);
 }
 
 int quadCurve_perimetro (QuadCurve* this) {
-	Figure* sup = (Figure*) this;
-	return 2*sup->x + 2*this->x2 + 2*sup->y + 2*this->y2;
+    Figure* sup = (Figure*) this;
+    return 2*sup->x + 2*this->x2 + 2*sup->y + 2*this->y2;
 }
 
 Figure_vtable quadCurve_vtable = {
-	(Figure_Print) quadCurve_print,
+    (Figure_Print) quadCurve_print,
     (Figure_Area)  quadCurve_area,
     (Figure_Perimetro) quadCurve_perimetro
 };
@@ -236,7 +236,7 @@ void main (void) {
     };
 
     ///
-	int i;
+    int i;
     for (i=0; i<4; i++) {
         figs[i]->vtable->print(figs[i]);
     }

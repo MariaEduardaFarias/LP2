@@ -6,23 +6,23 @@ typedef struct {
 } Color;
 
 Color color_new(int r, int g, int b) {
-	Color cor;
-	cor.r = r;
-	cor.g = g;
-	cor.b = b;
-	return cor;
+    Color cor;
+    cor.r = r;
+    cor.g = g;
+    cor.b = b;
+    return cor;
 }
 
 void color_paint(Color cor) {
-	int r = cor.r;
-	int g = cor.g;
-	int b = cor.b;
-	if(r == 0 && g == 0 && b == 0){
+    int r = cor.r;
+    int g = cor.g;
+    int b = cor.b;
+    if(r == 0 && g == 0 && b == 0){
         printf("preto");
-	}
-	else if(r == 0 && g == 0 && b == 255){
+    }
+    else if(r == 0 && g == 0 && b == 255){
         printf("azul ");
-	}
+    }
 }
 
 struct Figure;

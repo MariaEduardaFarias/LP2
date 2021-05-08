@@ -97,6 +97,7 @@ class ListFrame extends JFrame {
 			        figs.remove(fig);
 				focus = null;
 				repaint();
+				break;
 			    }
 			    else if (evt.getKeyCode() == KeyEvent.VK_LEFT) {  //seta esquerda - arrasta a figura selecionada para esquerda
 				fig.drag(-1,0);

@@ -62,8 +62,9 @@ class ListFrame extends JFrame {
         this.addKeyListener (
             new KeyAdapter() {
                 public void keyPressed (KeyEvent evt) {
-		    int x = rand.nextInt(350);
-                    int y = rand.nextInt(350);
+		    Point pos = getMousePosition();
+		    int x = pos.x;
+                    int y = pos.y;
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
 		    int ctrx = rand.nextInt(350);

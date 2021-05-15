@@ -51,7 +51,8 @@ class ListFrame extends JFrame {
 	        public void mouseDragged (MouseEvent evt) {  //move a figura selecionada
 		    for (Figure fig: figs) {
 		        if (focus == fig) {
-			    fig.drag(evt.getX()-focus.x, evt.getY()-focus.y);
+			    focus.x = evt.getX()-focus.w/2;
+			    focus.y = evt.getY()-focus.h/2;
 			    repaint();
 			}
 		    }

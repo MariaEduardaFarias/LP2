@@ -68,10 +68,8 @@ class ListFrame extends JFrame {
                     int y = pos.y;
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
-		    int ctrx = rand.nextInt(350);
-		    int ctry = rand.nextInt(350);
-		    int x2 = rand.nextInt(350);
-		    int y2 = rand.nextInt(350);
+		    int arcW = 15;
+		    int arcH = 10;
 		    int AngleI = rand.nextInt(180);
 		    int AngleF = rand.nextInt(280);
 		    int r = rand.nextInt(255);
@@ -87,11 +85,11 @@ class ListFrame extends JFrame {
 		    else if (evt.getKeyChar() == 'e') {
                         figs.add(new Ellipse(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
 		    }
-		    else if (evt.getKeyChar() == 'q') {
-		        figs.add(new QuadCurve(x,y, ctrx,ctry, x2,y2, w,h, r,g,b, Drawr,Drawg,Drawb));
-		    }
 		    else if (evt.getKeyChar() == 'a') {
 		        figs.add(new Arc(x,y, w,h, AngleI,AngleF, r,g,b, Drawr,Drawg,Drawb));
+		    }
+		    else if (evt.getKeyChar() == 'o') {
+		        figs.add(new RoundRect(x,y, w,h, arcW,arcH, r,g,b, Drawr,Drawg,Drawb));
 		    }
 	            for (Figure fig: figs) {
 		        if (focus == fig) {

@@ -31,8 +31,10 @@ class ListFrame extends JFrame {
 	    new MouseAdapter() {
 		public void mousePressed (MouseEvent evt) {  //seleciona a figura
 		    focus = null;
+		    int x = evt.getX();
+		    int y = evt.getY();
 		    for (Figure fig: figs) {
-		        if ((fig.x <= evt.getX() && (fig.x + fig.w) >= evt.getX()) && (fig.y <= evt.getY() && (fig.y + fig.h) >= evt.getY())) {
+		        if (fig.clicked(x,y)) {
 			    focus = fig;
 			    repaint();
 			    break;

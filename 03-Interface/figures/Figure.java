@@ -10,7 +10,7 @@ public abstract class Figure implements IVisible {
 	
 	public Figure (int x, int y, int w, int h, int r, int g, int b, int Drawr, int Drawg, int Drawb){
 		this.x = x;
-        this.y = y;
+                this.y = y;
 		this.w = w;
 		this.h = h;
 		this.r = r;
@@ -22,8 +22,8 @@ public abstract class Figure implements IVisible {
 	}
 	
 	public void drag (int dx, int dy) {
-        this.x += dx;
-        this.y += dy;
+            this.x += dx;
+            this.y += dy;
     }
 	
 	public void resize (int dw, int dh) {

@@ -140,13 +140,11 @@ class ListFrame extends JFrame {
         super.paint(g);
 	Graphics2D g2d = (Graphics2D) g;
         for (Figure fig: this.figs) {
-            fig.paint(g);
+            fig.paint(g, false);
         }
 	
 	if (focus != null) {  //foca as figuras
-	    g2d.setColor(Color.RED);
-	    g2d.drawRect(focus.x-3, focus.y-3, focus.w+6, focus.h+6);
-	    focus.paint(g);  //Z-order
+	    focus.paint(g, true);  //Z-order
 	}
     }
 }

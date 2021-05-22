@@ -18,8 +18,14 @@ public class RoundRect extends Figure {
             this.w, this.h, this.x, this.y);
     }
 
-    public void paint (Graphics g) {
+    public void paint (Graphics g, boolean focused) {
         Graphics2D g2d = (Graphics2D) g;
+	
+	if (focused) {
+	    g2d.setPaint(Color.RED);
+	    g2d.draw(new RoundRectangle2D.Double(this.x-3,this.y-3, this.w+6,this.h+6, this.arcW,this.arcH));
+	}
+	
 	g2d.setColor(new Color(this.r,this.g,this.b));
 	g2d.fill(new RoundRectangle2D.Double(this.x,this.y, this.w,this.h, this.arcW,this.arcH));
         g2d.setColor(new Color(this.Drawr,this.Drawg,this.Drawb));

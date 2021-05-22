@@ -5,7 +5,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.geom.RoundRectangle2D.Double;
 
 public class RoundRect extends Figure {
-	private int arcW, arcH;
+    private int arcW, arcH;
 
     public RoundRect (int x, int y, int w, int h, int arcW, int arcH, int r, int g, int b, int Drawr, int Drawg, int Drawb) {
         super(x,y, w,h, r,g,b, Drawr,Drawg,Drawb);

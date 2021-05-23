@@ -15,7 +15,9 @@ class App {
 
 class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
+    ArrayList<Button> buts = new ArrayList<Button>();
     Figure focus = null;
+    Button focus_but = null;
     Random rand = new Random();
 
     ListFrame () {
@@ -26,11 +28,17 @@ class ListFrame extends JFrame {
                 }
             }
         );
+	    
+	buts.add(new Button(1, new Rect(0,0,0,0,0,0,0,0,0,0)));
+	buts.add(new Button(2, new Ellipse(0,0,0,0,0,0,0,0,0,0)));
+	buts.add(new Button(3, new Arc(0,0,0,0,180,250,0,0,0,0,0,0)));
+	buts.add(new Button(4, new RoundRect(0,0,0,0,15,10,0,0,0,0,0,0)));
 	
 	this.addMouseListener(
 	    new MouseAdapter() {
 		public void mousePressed (MouseEvent evt) {  //seleciona a figura
 		    focus = null;
+		    focus_but = null;
 		    int x = evt.getX();
 		    int y = evt.getY();
 		    for (Figure fig: figs) {
@@ -44,6 +52,28 @@ class ListFrame extends JFrame {
 			    repaint();
 			}
 		    }
+		    for (Button but: buts) {
+		        if (but.clicked(x,y)) {
+			    focus_but = but;
+			    repaint();
+			    break;
+			}
+		    }
+		    if (focus_but != null) {
+		        if (focus_but.idx == 1) {
+			    figs.add(new Rect(x+175,y+25, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			}
+			else if (focus_but.idx == 2) {
+			    figs.add(new Ellipse(x+175,y+50, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			}
+			else if (focus_but.idx == 3) {
+			    figs.add(new Arc(x+175,y+75, rand.nextInt(50),rand.nextInt(50), rand.nextInt(180),rand.nextInt(280),0,0,0,0,0,0));
+			}
+			else if (focus_but.idx == 4) {
+			    figs.add(new RoundRect(x+175,y+100, rand.nextInt(50),rand.nextInt(50),15,10,0,0,0,0,0,0));
+			}
+		    }
+		    repaint();
 		}
 	    }
 	);
@@ -145,6 +175,9 @@ class ListFrame extends JFrame {
 	
 	if (focus != null) {  //foca as figuras
 	    focus.paint(g, true);  //Z-order
+	}
+	for (Button but: this.buts) {
+	    but.paint(g, but == focus_but);
 	}
     }
 }

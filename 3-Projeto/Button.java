@@ -9,8 +9,8 @@ public class Button implements IVisible {
     public Button (int idx, Figure fig) {
         this.idx = idx;
 	this.fig = fig;
-	this.fig.x = 4+20;
-	this.fig.y = 4+20+idx*40;
+	this.fig.x = 24;
+	this.fig.y = 24+idx*40;
 	this.fig.w = 40-4*2;
 	this.fig.h = 40-4*2;
     }
@@ -22,7 +22,12 @@ public class Button implements IVisible {
     public void paint (Graphics g, boolean focused) {
 	Graphics2D g2d = (Graphics2D) g;
 
-	g2d.setColor(focused ? Color.GRAY : Color.LIGHT_GRAY);
+	if (focused) {
+	    g2d.setColor(Color.GRAY);
+	}
+	else {
+	    g2d.setColor(Color.LIGHT_GRAY);
+	}
 	g2d.fillRect(20, 20+this.idx*40, 40, 40);
 
 	g2d.setColor(Color.BLACK);

@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.*;
 
 import figures.*;
 
@@ -19,20 +20,40 @@ class ListFrame extends JFrame {
     Figure focus = null;
     Button focus_but = null;
     Random rand = new Random();
+    int idx;
 
     ListFrame () {
+	try {
+	    FileInputStream f = new FileInputStream("proj.bin");
+	    ObjectInputStream o = new ObjectInputStream(f);
+	    this.figs = (ArrayList<Figure>) o.readObject();
+	    o.close();
+	} catch (Exception x) {
+	    System.out.println("ERRO!");
+	}
+	    
         this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
+		    try {
+		        FileOutputStream f = new FileOutputStream("proj.bin");
+			ObjectOutputStream o = new ObjectOutputStream(f);
+			o.writeObject(figs);
+			o.flush();
+			o.close();
+		    } catch (Exception x) {
+		    }
                     System.exit(0);
                 }
             }
         );
+	
+	setFocusTraversalKeysEnabled(false);
 	    
 	buts.add(new Button(1, new Rect(0,0,0,0,0,0,0,0,0,0)));
 	buts.add(new Button(2, new Ellipse(0,0,0,0,0,0,0,0,0,0)));
 	buts.add(new Button(3, new Arc(0,0,0,0,180,250,0,0,0,0,0,0)));
-	buts.add(new Button(4, new RoundRect(0,0,0,0,15,10,0,0,0,0,0,0)));
+	buts.add(new Button(4, new RoundRect(0,0,0,0,20,15,0,0,0,0,0,0)));
 	
 	this.addMouseListener(
 	    new MouseAdapter() {
@@ -59,18 +80,35 @@ class ListFrame extends JFrame {
 			    break;
 			}
 		    }
+			
 		    if (focus_but != null) {
 		        if (focus_but.idx == 1) {
-			    figs.add(new Rect(x+175,y+25, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			    idx = 1;
 			}
 			else if (focus_but.idx == 2) {
-			    figs.add(new Ellipse(x+175,y+50, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			    idx = 2;
 			}
 			else if (focus_but.idx == 3) {
-			    figs.add(new Arc(x+175,y+75, rand.nextInt(50),rand.nextInt(50), rand.nextInt(180),rand.nextInt(280),0,0,0,0,0,0));
+			    idx = 3;
 			}
 			else if (focus_but.idx == 4) {
-			    figs.add(new RoundRect(x+175,y+100, rand.nextInt(50),rand.nextInt(50),15,10,0,0,0,0,0,0));
+			    idx = 4;
+			}
+		    }
+		    repaint();
+			
+		    if ((focus_but == null) && (focus == null)) {
+		        if (idx == 1) {
+			    figs.add(new Rect(x,y, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			}
+			else if (idx == 2) {
+			    figs.add(new Ellipse(x,y, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			}
+			else if (idx == 3) {
+			    figs.add(new Arc(x,y, rand.nextInt(50),rand.nextInt(50), rand.nextInt(180),rand.nextInt(280),0,0,0,0,0,0));
+			}
+			else if (idx == 4) {
+			    figs.add(new RoundRect(x,y, rand.nextInt(50),rand.nextInt(50),20,15,0,0,0,0,0,0));
 			}
 		    }
 		    repaint();
@@ -100,8 +138,8 @@ class ListFrame extends JFrame {
                     int y = pos.y;
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
-		    int arcW = 15;
-		    int arcH = 10;
+		    int arcW = 20;
+		    int arcH = 15;
 		    int AngleI = rand.nextInt(180);
 		    int AngleF = rand.nextInt(280);
 		    int r = rand.nextInt(255);
@@ -155,6 +193,12 @@ class ListFrame extends JFrame {
 			    else if (evt.getKeyChar() == 'c') {  //muda cor de contorno da figura selecionada
 				fig.contorno(Drawr,Drawg,Drawb);
 			    }
+			}
+			else if (evt.getKeyCode() == KeyEvent.VK_TAB) { //muda o foco
+			    focus = fig;
+			    figs.remove(fig);
+			    figs.add(fig);
+			    break;
 			}
 		    }
 		    repaint();

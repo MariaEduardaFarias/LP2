@@ -1,5 +1,5 @@
 <h3>Manual de Instruções<h3>
-<h1>Teclas<h1>
+<h6>Teclas<h6>
 <li>'r': Cria retângulo</li>
 <li>'e': Cria elipse</li>
 <li>'a': Cria arco</li>

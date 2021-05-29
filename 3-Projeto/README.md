@@ -1,8 +1,8 @@
 <h3>Manual de Instruções</h3>
 <p>Teclas</p>
-<li>'r': Cria retângulo</li>
-<li>'e': Cria elipse</li>
-<li>'a': Cria arco</li>
+<li>'r': Cria retângulo (Rect)</li>
+<li>'e': Cria elipse (Ellipse)</li>
+<li>'a': Cria arco (Arc)</li>
 <li>'o': Cria retângulo com as bordas arredondadas (Round Rectangle)</li>
 <li>'f': Muda a cor de fundo da figura selecionada</li>
 <li>'c': Muda a cor de contorno da figura selecionada</li>

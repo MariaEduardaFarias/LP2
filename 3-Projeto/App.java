@@ -110,6 +110,7 @@ class ListFrame extends JFrame {
 			else if (idx == 4) {
 			    figs.add(new RoundRect(x,y, rand.nextInt(50),rand.nextInt(50),20,15,0,0,0,0,0,0));
 			}
+			focus = figs.get(figs.size()-1); //figura surge em foco
 		    }
 		    repaint();
 		}
@@ -151,15 +152,19 @@ class ListFrame extends JFrame {
 		    
                     if (evt.getKeyChar() == 'r') {
                         figs.add(new Rect(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
-                    }
+                    	focus = figs.get(figs.size()-1);
+		    }
 		    else if (evt.getKeyChar() == 'e') {
                         figs.add(new Ellipse(x,y, w,h, r,g,b, Drawr,Drawg,Drawb));
+		    	focus = figs.get(figs.size()-1);
 		    }
 		    else if (evt.getKeyChar() == 'a') {
 		        figs.add(new Arc(x,y, w,h, AngleI,AngleF, r,g,b, Drawr,Drawg,Drawb));
+		    	focus = figs.get(figs.size()-1);
 		    }
 		    else if (evt.getKeyChar() == 'o') {
 		        figs.add(new RoundRect(x,y, w,h, arcW,arcH, r,g,b, Drawr,Drawg,Drawb));
+		    	focus = figs.get(figs.size()-1);
 		    }
 	            for (Figure fig: figs) {
 		        if (focus == fig) {

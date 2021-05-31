@@ -100,17 +100,21 @@ class ListFrame extends JFrame {
 		    if ((focus_but == null) && (focus == null)) {
 		        if (idx == 1) {
 			    figs.add(new Rect(x,y, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			    focus = figs.get(figs.size()-1); //figura surge em foco
 			}
 			else if (idx == 2) {
 			    figs.add(new Ellipse(x,y, rand.nextInt(50),rand.nextInt(50),0,0,0,0,0,0));
+			    focus = figs.get(figs.size()-1);
 			}
 			else if (idx == 3) {
 			    figs.add(new Arc(x,y, rand.nextInt(50),rand.nextInt(50), rand.nextInt(180),rand.nextInt(280),0,0,0,0,0,0));
+			    focus = figs.get(figs.size()-1);
 			}
 			else if (idx == 4) {
 			    figs.add(new RoundRect(x,y, rand.nextInt(50),rand.nextInt(50),20,15,0,0,0,0,0,0));
+			    focus = figs.get(figs.size()-1);
 			}
-			focus = figs.get(figs.size()-1); //figura surge em foco
+			idx = 0;
 		    }
 		    repaint();
 		}
